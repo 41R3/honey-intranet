@@ -1,0 +1,17 @@
+# Copiá este archivo como "Caddyfile" en el VPS y reemplazá el dominio.
+# Caddy pide y renueva el certificado de Let's Encrypt solo, sin config extra.
+
+tu-dominio.com {
+	handle /auth/* {
+		reverse_proxy backend:4000
+	}
+	handle /api/* {
+		reverse_proxy backend:4000
+	}
+	handle /graphql* {
+		reverse_proxy backend:4000
+	}
+	handle {
+		reverse_proxy frontend:3000
+	}
+}

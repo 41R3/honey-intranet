@@ -1,0 +1,26 @@
+# Esta NO se aplica directamente con kubectl — es la plantilla que el backend
+# usaría con @kubernetes/client-node para instanciar un señuelo por cada
+# clic en "Desplegar". Se incluye aquí como referencia de lo que el código
+# generaría dinámicamente en producción.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: honeypot-instance-PLACEHOLDER_ID
+  labels:
+    app: honeypot-instance
+    honeypotId: "PLACEHOLDER_ID"
+spec:
+  containers:
+    - name: honeypot
+      image: honeypot-template:latest
+      env:
+        - name: HONEYPOT_ID
+          value: "PLACEHOLDER_ID"
+        - name: API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: honeypot-PLACEHOLDER_ID-token
+              key: token
+        - name: BACKEND_URL
+          value: "http://honey-backend-svc:4000"
+  restartPolicy: Never

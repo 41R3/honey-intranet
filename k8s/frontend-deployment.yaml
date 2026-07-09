@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: honey-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: honey-frontend
+  template:
+    metadata:
+      labels:
+        app: honey-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: honey-intranet-frontend:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: honey-frontend-svc
+spec:
+  selector:
+    app: honey-frontend
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
