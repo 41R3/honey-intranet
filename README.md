@@ -51,17 +51,20 @@ de acceso quedan capturados y visibles en tiempo real en el dashboard.
    ```bash
    cd honey-intranet
    docker compose up --build
+   cloudflared tunnel --url https://localhost:443 --no-tls-verify --http-host-header localhost
    ```
-
-2. Crear usuario (queda como superadmin automático)
+##Copiás la URL que te dé, entrás con /login, y ya está — dashboard funcionando en HTTPS público real.
+2. 
+3. Crear usuario (queda como superadmin automático)
    ```bash
    curl -X POST http://localhost:4000/auth/register \
      -H "Content-Type: application/json" \
      -d '{"email":"admin@test.com","password":"tuclave123"}'
    ```
 
-3. Entrar a sesión
-   `http://localhost:3000`
+3. Entrar a sesión con el link que te da el cloudflared, que tiene el siguiente formato(https://passage-publication-bigger-autumn.trycloudflare.com) que corre en el paso 1, este cambia cada vez que se vuelva ejecutar el bash si se ha cerrado antes o es la primera vez que se ejecuta, y despues para hacerlo funcionar loguearte con el usuario creado en el paso 2.
+
+   
 
 4. Nombrar señuelo, crearlo, y tocar "Desplegar" desde el dashboard
 
