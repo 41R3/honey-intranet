@@ -49,10 +49,7 @@ services:
     ports:
       - "3000:3000"
 
-  # Imagen base del señuelo. Se construye junto con el resto del stack para que
-  # "honeypot-template:latest" siempre exista cuando el backend la instancie
-  # dinámicamente vía dockerode al hacer clic en "Desplegar". Esta instancia fija
-  # queda idle (sin puerto expuesto al host), no interfiere con los señuelos reales.
+
   honeypot-template:
     build: ./honeypot-template
     image: honeypot-template:latest

@@ -1,7 +1,6 @@
-# Esta NO se aplica directamente con kubectl — es la plantilla que el backend
-# usaría con @kubernetes/client-node para instanciar un señuelo por cada
+# es la plantilla que el backend
 # clic en "Desplegar". Se incluye aquí como referencia de lo que el código
-# generaría dinámicamente en producción.
+# generaría dinámicamente en producción con kubernets, pero NO SE ESTA USANDO
 apiVersion: v1
 kind: Pod
 metadata:

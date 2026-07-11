@@ -1,10 +1,4 @@
-# NOTA IMPORTANTE PARA LA SUSTENTACIÓN:
-# En un clúster K8s real, el backend NO debería controlar Docker vía socket
-# montado (eso rompe el aislamiento de contenedores/nodos). La forma correcta
-# es que el backend hable con la API de Kubernetes (usando @kubernetes/client-node)
-# para crear/eliminar Pods de señuelos dinámicamente, en vez de contenedores Docker
-# sueltos. Este manifiesto asume esa migración: el backend usa un ServiceAccount
-# con permisos RBAC para crear/borrar pods con el label app=honeypot-instance.
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
