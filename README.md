@@ -5,6 +5,8 @@ administrador desplegar, con un clic, señuelos web (intranets falsas) dentro
 de su red. Si un atacante o insider malicioso cae en la trampa, sus intentos
 de acceso quedan capturados y visibles en tiempo real en el dashboard.
 
+<img width="1398" height="1134" alt="Captura desde 2026-07-08 20-02-00" src="https://github.com/user-attachments/assets/51898209-0c85-4e2a-8c70-4e74fea8d352" />
+
 ## Arquitectura
 
 ```
